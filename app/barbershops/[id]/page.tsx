@@ -1,4 +1,3 @@
-import { Button } from "@/app/_components/ui/button";
 import { db } from "@/prisma/prisma";
 import BarbershopInfo from "./_components/barbershop-info";
 import ServiceItem from "./_components/service-item";
@@ -36,7 +35,7 @@ const BarbershopDetailsPage = async ({ params }: BarbershopDetailsPageProps) => 
             <div className="flex flex-col gap-4 px-5 py-6">
                 
                 {barbershop.services.map(service => (
-                    <ServiceItem key={service.id} service={service} isAuthenticated={!!session?.user}/>
+                    <ServiceItem key={service.id} service={service} barbershop={barbershop} isAuthenticated={!!session?.user}/>
                 ))}
                 
             </div>
